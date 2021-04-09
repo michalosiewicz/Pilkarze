@@ -1,0 +1,228 @@
+﻿<Window x:Class="Lab1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab1"
+        xmlns:lang="clr-namespace:Lab1.Properties.Lang"
+        mc:Ignorable="d"
+        Title="{x:Static lang:Lang.TitleText}" Height="450" Width="800"
+        Loaded="Window_Loaded" Closing="Window_Closing">
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="DockLangText" 
+                           Text="{x:Static lang:Lang.LangText}"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ComboBox x:Name="ComboBoxLang">
+                    <ComboBoxItem>pl-PL</ComboBoxItem>
+                    <ComboBoxItem>en-GB</ComboBoxItem>
+                    <ComboBoxItem>de-DE</ComboBoxItem>
+                </ComboBox>
+            </StatusBarItem>
+            <StatusBarItem>
+                <Button x:Name="ButtonLanguage" 
+                        Content="{x:Static lang:Lang.ButtonLangText}" 
+                        FontWeight="Bold"
+                        Click="ButtonLanguage_Click"/>
+            </StatusBarItem>
+        </StatusBar>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="Lista_pilkarzy" Grid.Column="1" 
+                 Margin="0,5,5,5" Background="#FFE1E0AE"
+                 SelectionChanged="Lista_pilkarzy_SelectionChanged"/>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                       Text="{x:Static lang:Lang.FNameText}" 
+                       FontSize="20"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontWeight="Bold"/>
+                    <TextBox x:Name="Text_imie" Grid.Column="1" 
+                     VerticalAlignment="Center"
+                     FontSize="13" Margin="5" 
+                         Background="AliceBlue"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                       Text="{x:Static lang:Lang.LNameText}" 
+                       FontSize="20"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontWeight="Bold"/>
+                    <TextBox x:Name="Text_nazwisko" 
+                     Grid.Column="1" 
+                     VerticalAlignment="Center"
+                     FontSize="13" Margin="5"
+                     Background="AliceBlue"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                       Text="{x:Static lang:Lang.AgeText}" 
+                       FontSize="20"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontWeight="Bold"/>
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="Text_wiek" Grid.Column="1" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           FontSize="13"
+                           Margin="5"/>
+                        <Slider x:Name="wiek" Grid.Column="0" 
+                        VerticalAlignment="Center"
+                        Minimum="15" Maximum="50"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        ValueChanged="wiek_ValueChanged"
+                        Margin="5" />
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                       Text="{x:Static lang:Lang.WeightText}" 
+                       FontSize="20"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontWeight="Bold"/>
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="Text_waga" Grid.Column="1"
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           FontSize="13"
+                           Margin="5"/>
+                        <Slider x:Name="Slider_waga" Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Minimum="50" Maximum="90"
+                        IsSnapToTickEnabled="True"
+                        TickFrequency="1"
+                        ValueChanged="Slider_waga_ValueChanged"
+                        Margin="5"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                       Text="{x:Static lang:Lang.HeightText}" 
+                       FontSize="20"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontWeight="Bold"/>
+                    <Grid Grid.Column="1 ">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="Text_wzrost" 
+                     Grid.Column="0" Margin="5"
+                     VerticalAlignment="Center"
+                     FontSize="13" Background="AliceBlue"/>
+                        <TextBlock Grid.Column="1" Text="cm"
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               FontSize="13" Margin="5"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                       Text="{x:Static lang:Lang.ClubText}" 
+                       FontSize="20"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontWeight="Bold"/>
+                    <ComboBox x:Name="Kluby" Grid.Column="1" 
+                      Margin="5" VerticalAlignment="Center">
+                        <ComboBoxItem>FC Barcelona</ComboBoxItem>
+                        <ComboBoxItem>Real Madrit</ComboBoxItem>
+                        <ComboBoxItem>Juventus</ComboBoxItem>
+                        <ComboBoxItem>AC Milan</ComboBoxItem>
+                        <ComboBoxItem>Liverpool</ComboBoxItem>
+                        <ComboBoxItem>Manchester United</ComboBoxItem>
+                        <ComboBoxItem>Bayern Munchen</ComboBoxItem>
+                        <ComboBoxItem>Borusia Dortmund</ComboBoxItem>
+                        <ComboBoxItem>PSG</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+
+                <Grid Grid.Row="6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="Dodaj" Grid.Row="0"
+                    Content="{x:Static lang:Lang.ButtonAddText}" 
+                    FontSize="20" FontWeight="Bold" Margin="5"
+                    Click="Dodaj_Click" Background="AliceBlue"/>
+                    <Button x:Name="button_edytuj" Grid.Row="1"
+                    Content="{x:Static lang:Lang.ButtonEditText}" 
+                    FontSize="20" 
+                    FontWeight="Bold" Margin="5"
+                        Click="button_edytuj_Click"
+                        Background="AliceBlue"/>
+                    <Button x:Name="button_usun" Grid.Row="2"
+                    Content="{x:Static lang:Lang.ButtonRemoveText}" 
+                    FontSize="20" 
+                    FontWeight="Bold" Margin="5"
+                        Background="AliceBlue"
+                        Click="button_usun_Click"/>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>
